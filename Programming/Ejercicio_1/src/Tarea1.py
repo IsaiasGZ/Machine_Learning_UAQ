@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 import math as m
 import time as t
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 # Se ocupa por si no se quiere sacar los datos de forma local#
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
@@ -41,6 +42,8 @@ def load_data_cloud_kg(file_path,handle):
         print(f"Error al cargar el dataset: {e}")
         return None
 
+# Actividad 1 #
+
 #Funcion para obtencion de maximo de la columna #
 def get_max_value(values):
     max_val = None
@@ -61,12 +64,15 @@ def get_min_value(values):
 
 # Funcion para obtenccion de la media de una columna#
 def get_mean(values):
-    mean = 0
+    suma = 0
+    contador = 0
+    
     for p in values:
-        if isinstance(p,(int,float)):
-            mean += p
-    mean = mean/len(values)
-    return mean
+        if isinstance(p, (int, float)) and not m.isnan(p):
+            suma += p
+            contador += 1
+
+    return suma / contador if contador > 0 else float("nan")
 
 
 #Funcion para obtencion Desviacion estandar de la columna#
@@ -80,8 +86,6 @@ def get_desv_stand(values,mean):
     desv_stand = m.sqrt(desv_stand / len(values))
 
     return desv_stand
-
-
 
 # Funcion para obtencion del numero de atributos (campos) #
 def get_hM_atribute(df):
@@ -142,8 +146,181 @@ def get_balanceofClasses(values):
         
     return resultado_final
 
+
+# Actividad 2 #
+
+def get_empty_Data(data_list):
+    empty_count = sum(1 for x in data_list if pd.isna(x))
+    porcentaje = (empty_count / len(data_list)) * 100
+    return porcentaje
+
+def calcular_estadisticas_outliers(data_list):
+    if not data_list:
+        return None
+
+    # 1. Ordenar los datos (esencial para calcular cuartiles)
+    data_ordenada = sorted(data_list)
+    n = len(data_ordenada)
+
+    # 2. Función interna para encontrar un percentil (interpolación lineal simple)
+    def get_percentile(data, percentile):
+        k = (len(data) - 1) * percentile
+        f = int(k)
+        c = k - f
+        if f + 1 < len(data):
+            return data[f] + (data[f+1] - data[f]) * c
+        else:
+            return data[f]
+
+    # 3. Calcular Q1 (25%) y Q3 (75%)
+    q1 = get_percentile(data_ordenada, 0.25)
+    q3 = get_percentile(data_ordenada, 0.75)
+
+    # 4. Calcular el Rango Intercuartílico (IQR)
+    iqr = q3 - q1
+
+    # 5. Calcular Límites Inferior y Superior
+    limite_inferior = q1 - 1.5 * iqr
+    limite_superior = q3 + 1.5 * iqr
+
+    # 6. Identificar Outliers
+    outliers = [x for x in data_list if x < limite_inferior or x > limite_superior]
+
+    return {
+        "q1": q1,
+        "q3": q3,
+        "iqr": iqr,
+        "limite_inf": limite_inferior,
+        "limite_sup": limite_superior,
+        "outliers": outliers
+    }
+
+# Metodos de Imputacion #
+# 1 .Imputacion por Media o Moda
+def imputacion_media(data_list):
+    print("\nCalculando media para imputación...")
+    print(data_list)
+    media = get_mean(data_list)
+    print(f"Media calculada: {media}")
+    data_imputada = [media if pd.isna(x) else x for x in data_list]
+    # Creamos la lista de "auditoría" (solo los cambios)
+    cambios = []
+    for i, x in enumerate(data_list):
+        if pd.isna(x):
+            cambios.append({"indice": i, "valor_nuevo": media})
+    return data_imputada,cambios
+
+# 2.- Imputacion por vecino mas cercano (KNN)
+def imputacion_knn(data_list, k=3):
+    data_imputada = []
+    cambios = []  # Lista para la auditoría
+    
+    for i, x in enumerate(data_list):
+        if pd.isna(x):
+            vecinos = []
+            # Buscar vecinos a la izquierda
+            for j in range(i-1, max(i-k-1, -1), -1):
+                if not pd.isna(data_list[j]):
+                    vecinos.append(data_list[j])
+                if len(vecinos) >= k:
+                    break
+            
+            # Buscar vecinos a la derecha
+            for j in range(i+1, min(i+k+1, len(data_list))):
+                if not pd.isna(data_list[j]):
+                    vecinos.append(data_list[j])
+                if len(vecinos) >= k:
+                    break
+            
+            if vecinos:
+                nuevo_valor = sum(vecinos) / len(vecinos)
+                data_imputada.append(nuevo_valor)
+                # Guardamos el índice, el valor nuevo y los vecinos utilizados
+                cambios.append({
+                    "indice": i,
+                    "valor_nuevo": nuevo_valor,
+                    "vecinos_usados": vecinos.copy()
+                })
+            else:
+                data_imputada.append(x)  # Se queda como NaN si no hubo vecinos
+        else:
+            data_imputada.append(x)
+            
+    return data_imputada, cambios
+
+# Codificacion
+def codificacion_one_hot(data_list):
+    categorias = sorted(set(x for x in data_list if str(x).lower() != 'nan'))
+    codificacion = {cat: [1 if x == cat else 0 for x in data_list] for cat in categorias}
+    return codificacion
+
+# Normalizacion
+def normalizacion_min_max(data_list):
+    min_val = get_min_value(data_list)
+    max_val = get_max_value(data_list)
+    if max_val == min_val:
+        return [0.5 for _ in data_list]  # Evitar división por cero, asignamos 0.5 a todos
+    return [(x - min_val) / (max_val - min_val) if not pd.isna(x) else x for x in data_list]
+
+# def comparar_imputacion_kde(data_original, data_imputada):
+
+#     original = pd.Series(data_original)
+#     imputada = pd.Series(data_imputada)
+
+#     mask = original.isna()
+
+#     valores_reales = original[~mask]
+#     valores_imputados = imputada[mask]
+
+#     print("\nCantidad de valores imputados:", mask.sum())
+
+#     plt.figure(figsize=(8,5))
+
+#     sns.kdeplot(valores_reales, label="Valores reales", fill=True)
+#     sns.kdeplot(valores_imputados, label="Valores imputados", fill=True)
+
+#     plt.title("Comparación KDE: Reales vs Imputados")
+#     plt.xlabel("Valor")
+#     plt.ylabel("Densidad")
+#     plt.legend()
+#     plt.show()
+def comparar_imputacion_kde(data_original, data_imputada):
+
+    original = pd.Series(data_original)
+    imputada = pd.Series(data_imputada)
+
+    valores_reales = original.dropna()
+    valores_imputados = imputada.dropna()
+
+    print("\nCantidad de valores imputados:", original.isna().sum())
+
+    plt.figure(figsize=(8,5))
+
+    sns.kdeplot(valores_reales, label="Valores reales", fill=True)
+    sns.kdeplot(valores_imputados, label="Valores imputados", fill=True)
+
+    plt.title("Comparación KDE: Reales vs Imputados")
+    plt.xlabel("Valor")
+    plt.ylabel("Densidad")
+    plt.legend()
+    plt.show()
+
+def verificar_normalizacion(original, normalizada):
+
+    original = pd.Series(original).dropna()
+    normalizada = pd.Series(normalizada).dropna()
+
+    plt.figure(figsize=(6,6))
+    plt.scatter(original, normalizada)
+
+    plt.xlabel("Valores Originales")
+    plt.ylabel("Valores Normalizados")
+    plt.title("Relación Original vs Normalizado")
+
+    plt.show()
+
 # Plantilla para pasar por cada proceso#
-def validate_data(data_list,df):
+def validate_data(data_list,df,num):
     
     if not data_list or len(data_list) == 0:
         return "Lista vacía"
@@ -155,17 +332,26 @@ def validate_data(data_list,df):
     media = get_mean(data_list)
     
     # Retornamos el diccionario de resultados
-    return {
-        "max": get_max_value(data_list),
-        "min": get_min_value(data_list),
-        "media": media,
-        "desv_estandar": get_desv_stand(data_list, media),
-        "atributos": get_hM_atribute(df),
-        "instancias": get_hM_instance(data_list),
-        "observaciones": get_observations(data_list),
-        "balance_clases": get_balanceofClasses(data_list)
+    res = {}
+    if(num == 1):
+        res = {
+            "max": get_max_value(data_list),
+            "min": get_min_value(data_list),
+            "media": media,
+            "desv_estandar": get_desv_stand(data_list, media),
+            "atributos": get_hM_atribute(df),
+            "instancias": get_hM_instance(data_list),
+            "observaciones": get_observations(data_list),
+            "balance_clases": get_balanceofClasses(data_list)
+        }
+    if(num == 2):
+        res = {
+        "datf": get_empty_Data(data_list),
+        "iqr": calcular_estadisticas_outliers(data_list)
     }
+    return res
 
+# En este primer menu sera para la actividad 1#
 def menu_operaciones(data_list,df2):
     while True:
         print("\n--- ¿Qué desea calcular? ---")
@@ -178,7 +364,7 @@ def menu_operaciones(data_list,df2):
         if op == "0":
             break
         
-        results = validate_data(data_list,df2)
+        results = validate_data(data_list,df2,1)
 
         if isinstance(results, str):
             print(f"\n[!] {results}")
@@ -202,6 +388,82 @@ def menu_operaciones(data_list,df2):
             input("\nPresione Enter para continuar...")
         else:
             print("Opción no válida. Intente de nuevo.")
+
+# En este segundo menu sera para la actividad 2#
+def menu_operaciones2(data_list,df3):
+    while True:
+        print("\n--- ¿Qué desea calcular? ---")
+        print("1. Datos Faltantes\n2. Datos Atipicos (IQR)\n3. Imputacion de Datos")
+        print("\n0. Volver")
+
+        op = input("\nSeleccione una operación: ")
+
+        if op == "0":
+            break
+        
+        results = validate_data(data_list,df3,2)
+
+        if isinstance(results, str):
+            print(f"\n[!] {results}")
+            break 
+
+        mapeo = {
+            "1": "datf", "2": "iqr"
+        }
+
+        if op in mapeo:
+            clave = mapeo[op]
+            print(f"\n{clave.replace('_', ' ').capitalize()}: {results[clave]}")
+        elif op == "3":
+            data_imputada = menu_imputacion(data_list)
+            print("\nDatos imputados:", data_imputada)
+            if data_imputada is not None:
+                comparar_imputacion_kde(data_list, data_imputada)
+                op2 = input("\nDesea continuar con la codificacion?? \n1)Si\n2)No\n")
+                if op2 == "1":
+                    codificacion = codificacion_one_hot(data_imputada)
+                    print("\nCodificación One-Hot:")
+                    for cat, cod in codificacion.items():
+                        print(f"{cat}: {cod}")
+                    op3 = input("\nDesea continuar con la normalizacion?? \n1)Si\n2)No\n")
+                    if op3 == "1":
+                        normalizada = normalizacion_min_max(data_imputada)
+                        verificar_normalizacion(data_imputada,normalizada)
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+# Este menu es para la actividad 2, donde se muestran los metodos de imputacion, codificacion y normalizacion#
+def menu_imputacion(data_list):
+
+    data_imputada = None
+
+    while True:
+        print("\n--- Métodos de Imputación ---")
+        print("1. Imputación por Media")
+        print("2. Imputación por KNN")
+        print("0. Volver")
+
+        op = input("\nSeleccione un método de imputación: ")
+
+        if op == "0":
+            break
+        
+        elif op == "1":
+            datos, cambios = imputacion_media(data_list)
+            print("\nDatos imputados por media:")
+            print(datos)
+            data_imputada = datos
+
+        elif op == "2":
+            datos, cambios = imputacion_knn(data_list)
+            print("\nDatos imputados por KNN:")
+            print(datos)
+            data_imputada = datos
+        
+        else:
+            print("Opción no válida.")
+
+    return data_imputada
 
 def _main():
     respuesta = True
@@ -255,7 +517,11 @@ def _main():
                     sel_int = int(sel)
                     if 1<= sel_int <= len(columnas) + 1:
                         lista = df[columnas[sel_int - 1]].values.tolist()
-                        menu_operaciones(lista,df)
+                        preguntaActividad = int(input('Que actividad desea realizar : \n1.- Actividad 1\n2.- Actividad 2\n'))
+                        if preguntaActividad == 1:
+                            menu_operaciones(lista,df)
+                        if preguntaActividad == 2:
+                            menu_operaciones2(lista,df)
                     # else:
                     #     print('Hola')
 

@@ -1,0 +1,14 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is '%OUTDIR%/Reporte_Atividad2_IGZ.blg'
+[136] biber-MSWIN64:342> INFO - === 
+[182] Biber.pm:421> INFO - Reading '%OUTDIR%/Reporte_Atividad2_IGZ.bcf'
+[277] Biber.pm:1002> INFO - Found 6 citekeys in bib section 0
+[296] Biber.pm:4487> INFO - Processing section 0
+[307] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[352] bibtex.pm:1713> INFO - LaTeX decoding ...
+[376] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[427] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[427] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[427] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[435] bbl.pm:676> INFO - Writing '%OUTDIR%/Reporte_Atividad2_IGZ.bbl' with encoding 'UTF-8'
+[437] bbl.pm:779> INFO - Output to %OUTDIR%/Reporte_Atividad2_IGZ.bbl

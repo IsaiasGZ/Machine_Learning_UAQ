@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % Sin el guion
+\usepackage[T1]{fontenc}    % Ayuda a que las tildes se copien bien del PDF
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Actividad 2: Distancia y Correlación}
+\author{Ing. Isaias Garcia Zanella}
+\date{\today}
+
+\begin{document}
+\section{Introducción}
+\section{Marco Teorico}
+\section{Materiales y metodos}
+\section{Resultados y discusion}
+\section{Conclusion}
+\section{Bibliografia}
+
+\end{document}
