@@ -5,18 +5,43 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{csquotes}
+\bibliography{referencias}
 \geometry{margin=1in}
+\usepackage{listings}
+\usepackage{xcolor}
 
-\title{Actividad 2: Distancia y Correlación}
+\usepackage{graphicx}
+\usepackage{float}      % opcional, para usar [H]
+\usepackage{hyperref}   % opcional, para referencias clickeables
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{black},
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    rulecolor=\color{black},
+    breaklines=true,
+    showstringspaces=false
+}
+
+\title{Actividad }
 \author{Ing. Isaias Garcia Zanella}
 \date{\today}
 
 \begin{document}
-\section{Introducción}
-\section{Marco Teorico}
-\section{Materiales y metodos}
-\section{Resultados y discusion}
-\section{Conclusion}
-\section{Bibliografia}
 
+\maketitle
+
+\section{Introducción}
+\section{Marco Teórico}
+\section{Materiales y Métodos}
+\section{Resultados y Discusión}
+\section{Conclusión}
+\printbibliography[title={ Bibliográficas}]
 \end{document}

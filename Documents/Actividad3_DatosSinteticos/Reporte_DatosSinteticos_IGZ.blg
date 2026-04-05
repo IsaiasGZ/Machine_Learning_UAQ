@@ -1,0 +1,14 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'Reporte_DatosSinteticos_IGZ.blg'
+[103] biber-MSWIN64:342> INFO - === 
+[145] Biber.pm:421> INFO - Reading 'Reporte_DatosSinteticos_IGZ.bcf'
+[241] Biber.pm:1002> INFO - Found 4 citekeys in bib section 0
+[255] Biber.pm:4487> INFO - Processing section 0
+[264] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[320] bibtex.pm:1713> INFO - LaTeX decoding ...
+[326] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[363] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[363] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[363] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[367] bbl.pm:676> INFO - Writing 'Reporte_DatosSinteticos_IGZ.bbl' with encoding 'UTF-8'
+[369] bbl.pm:779> INFO - Output to Reporte_DatosSinteticos_IGZ.bbl
