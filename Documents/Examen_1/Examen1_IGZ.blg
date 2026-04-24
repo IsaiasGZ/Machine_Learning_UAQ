@@ -1,0 +1,18 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'Examen1_IGZ.blg'
+[102] biber-MSWIN64:342> INFO - === 
+[133] Biber.pm:421> INFO - Reading 'Examen1_IGZ.bcf'
+[229] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
+[242] Biber.pm:4487> INFO - Processing section 0
+[252] Biber.pm:4678> INFO - Looking for bibtex file 'referenciasExamen.bib' for section 0
+[300] bibtex.pm:1713> INFO - LaTeX decoding ...
+[313] bibtex.pm:1519> INFO - Found BibTeX data source 'referenciasExamen.bib'
+[380] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[380] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[380] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[387] bbl.pm:676> INFO - Writing 'Examen1_IGZ.bbl' with encoding 'UTF-8'
+[390] bbl.pm:779> INFO - Output to Examen1_IGZ.bbl
+[391] Biber.pm:132> WARN - Duplicate entry key: 'james2013introduction' in file 'referenciasExamen.bib', skipping ...
+[391] Biber.pm:132> WARN - Duplicate entry key: 'raschka2015python' in file 'referenciasExamen.bib', skipping ...
+[391] Biber.pm:132> WARN - Duplicate entry key: 'shalev2014understanding' in file 'referenciasExamen.bib', skipping ...
+[391] Biber.pm:134> INFO - WARNINGS: 3
