@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % Sin el guion
+\usepackage[T1]{fontenc}    % Ayuda a que las tildes se copien bien del PDF
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{csquotes}
+% \bibliography{referencias}
+\geometry{margin=1in}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+\usepackage{float}      % opcional, para usar [H]
+\usepackage{hyperref}   % opcional, para referencias clickeables
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{black},
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    rulecolor=\color{black},
+    breaklines=true,
+    showstringspaces=false
+}
+
+\title{Actividad 4. Modelos de prediccion y Metricas de Error}
+\author{Ing. Isaias Garcia Zanella}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+\section{Marco Teórico}
+
+\subsection{Metricas de Error}
+Las metricas de evaluacion para datos continuos resultan utiles para conocer si los valores aproximados o predichos por un modelo se acercan o no a los valores reales. Esta diferencia entre los valores reales y lor predichos es el error.
+Cada metrica que se comentara a continuacion trata este error de manera singular, aplicando diversas ecuaciones que son convenientes para diversos modelos.A continuacion mencionaremos algunas metricas que pueden utilizarse:
+\begin{enumerate}
+    \item Error medio Cuadratico (MSE)
+    \item Error Medio Absoluto (MAE)
+    \item Error Relativo Cuadratico (RSE)
+    \item Error Relativo Absoluto (RAE)
+    \item Coeficiente de Correlacion (CC)
+\end{enumerate}
+
+\subsubsection{ Mean Squared Error (MSE y RMSE)}
+MSE es comunmente el metodo mas utilizafo para poder predecir el error. Tambien se utiliza su raiz cuadrada, llamada <<Root Mean-Squared Error>>-RMSE-
+Si consideramos el valor real (actual) como $a$ y el valor predicho como $p$, MSE y RMSE pueden calcularse como la diferencia entre el valor actual y el predicho al cuadrado entre el numero de valores (n) de la siguiente manera:
+\begin{equation}
+    MSE = \frac{1}{n} \sum_{}^{} (i=1)^n (y_i - \hat{y_i})^2
+\end{equation}
+\begin{equation}
+    RMSE = \sqrt{\frac{1}{n} \sum_{}^{}(i=1)^n(y_i - \hat{y_i})^2}
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $y_i$ = valor real
+    \item $\hat{y_i}$ = valor predicho
+    \item $n$ = numero de observaciones
+\end{itemize}
+
+El error medio cuadratico permite evaluar el rendimiento de multiples modelos en un problema de prediccion cuando se trata de datos continuos. MSE varia de un rango de $[0,\infty)$ siendo
+un menor valor de MSE, un mejor rendimiento del modelo. Este metodo penaliza mas los errores grandes debido al cuadrado  y es ampliamente utilizado y bien entendido. Sin embargo , tiene algunas limitaciones, entre ellas, que MSE es sensible a valores atipicos << outliers>> y tampoco proporciona informacion sobre direccion del error.
+
+
+\subsubsection{Mean Aboslute Error(MAE)}
+Es una medida que solo promedia las magnitudes de cada error de manera individual sin tener en cuenta su signo. Tiene una ventaja con respecto a MSE; con MAE los outliers no son exagerados y se trata todos los errores de la misma manera de acuerdo a su magnitud.
+El error medio absoluto se calcula de las siguiente manera:
+\begin{equation}
+    MAE = \frac{1}{n} \sum_{}^{}(i=1)^n |y_i - \hat{y_i}|
+\end{equation}
+
+
+\subsubsection{Relative squared error (RSE)}
+Con el Error Relativo Cuadratico (RSE) se normaliza, lo cual permite una comparacion entre diferentes conjuntos de datos y es independiente de la escala de los datos. Las desventajas de este metodo es que es menos intituivo que MSE o MAE y requiere calcular la media de los datos reales, por lo que es un poco mas complicado de calcular y hacer sentido del resultado.
+\begin{equation}
+    MAE = \frac{\sum_{}^{}(i=1)^n (y_i - \hat{y_i})^2}{\sum_{}^{}(i=1)^n (y_i - \bar{y})^2} 
+\end{equation}
+Donde:
+\begin{itemize}
+    \item $y_i$ = valor real de la observacion 
+    \item $\hat{y_i}$ = valor predicho de la observacion 
+    \item $\bar{y}$ + media de los valores reales : $\bar{y} = (\frac{1}{n}) \sum_{(i=1)^n}{} y_i $
+\end{itemize}
+
+\subsubsection{Relative absolute error (RAE)}
+El Error Relativo Absoluto (RAE) es el valor del error absoluto, normaliado de la misma manera que con MAE. RAE mide la fuerza de la relacion lineal
+y; como es una especie de normalizacion, sus valores se encuentran entre -1 y 1 por lo que este metodo es de facil interpretacion. Tiene algunas desventajas, por ejemplo, solo mide correlacion lineal y no indica la magnitud del error.
+
+\begin{equation}
+    RAE = \frac{\sum_{i=1}^{n} | y_i - \hat{y_i} |}{\sum_{i=1}^{n} | y_i - \bar{y} |}
+\end{equation}
+
+\subsubsection{Correlation Coefficient (CC)}
+El coeficiente de correlacion (CC) mide la correlacion estadistica los valores actuales y los valores predichos. El coeficiente de correlacion varia de 1 para un resultado de correlacion es perfecta pero negativa. Mide
+la fuerza de la relacion lineal y debido a su rango de valores, es facil interpretar esta metrica. Como deventaja, no indica la magnitud del error y puede ser alto incluso con predicciones sesgadas. 
+
+\begin{equation}
+    CC = \frac{\sum_{}^{}[(y_i - \bar{y})(\hat{y_i} - \hat{\bar{y}})]}{\sqrt{[\sum_{}^{}(yi - \bar{y})^2 \times \sum_{}^{}(\hat{y}i - \bar{\hat{y}})^2]}}
+\end{equation}
+
+\section{Materiales y Métodos}
+\section{Resultados y Discusión}
+\section{Conclusión}
+% \printbibliography[title={ Bibliográficas}]
+\end{document}
