@@ -7,7 +7,10 @@
 \usepackage{geometry}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{csquotes}
-% \bibliography{referencias}
+\usepackage[table,xcdraw]{xcolor} 
+\usepackage{tabularx}
+\usepackage{subcaption}
+\bibliography{referencias}
 \geometry{margin=1in}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -39,78 +42,356 @@
 \maketitle
 
 \section{Introducción}
+El mercado financiero genera grandes volúmenes de datos de manera continua, 
+lo que lo convierte en un campo de estudio ideal para la aplicación de 
+técnicas de aprendizaje automático. La predicción de precios bursátiles 
+representa uno de los problemas más estudiados en este ámbito, debido a 
+su relevancia tanto para inversores individuales como para instituciones 
+financieras.
+
+En este trabajo se aplica un modelo de Regresión Lineal para predecir 
+los precios históricos de la empresa Intel Corporation (INTC), utilizando 
+datos horarios obtenidos a través de la API de Yahoo Finance para el 
+período comprendido entre el 1 de enero de 2025 y el 1 de enero de 2026. 
+Se analizan las columnas Open, High, Low y Close, evaluando el desempeño 
+del modelo mediante cinco métricas de error: MSE, MAE, RSE, RAE y el 
+Coeficiente de Correlación.
+
+El objetivo principal es verificar la capacidad predictiva del modelo 
+utilizando los valores del período anterior como variables independientes, 
+lo que representa un escenario más realista y evita el sobreajuste que 
+ocurriría al utilizar variables del mismo instante de tiempo.
 \section{Marco Teórico}
+\subsection{Algoritmos de regresión}
+Los algoritmos de regresión son métodos estadísticos que tratan de determinar la relación entre una variable dependiente —usualmente denominada $Y$— y una serie de otras variables conocidas como variables independientes. 
+Los algoritmos de regresión modelan la relación entre las variables, la cual es iterativamente mejorada utilizando métricas de error en la predicción que realiza el modelo.
 
-\subsection{Metricas de Error}
-Las metricas de evaluacion para datos continuos resultan utiles para conocer si los valores aproximados o predichos por un modelo se acercan o no a los valores reales. Esta diferencia entre los valores reales y lor predichos es el error.
-Cada metrica que se comentara a continuacion trata este error de manera singular, aplicando diversas ecuaciones que son convenientes para diversos modelos.A continuacion mencionaremos algunas metricas que pueden utilizarse:
+Los algoritmos de regresión más populares son:
+
+\begin{itemize}
+    \item \textbf{Regresión Lineal}: Es un modelo estadístico simple que asume una relación lineal entre la variable independiente $X$ y la dependiente $Y$. La regresión lineal es fácil de interpretar y rápida de entrenar; así mismo, tiene un menor requerimiento computacional.
+    \item \textbf{Regresión Polinomial}: Esta regresión es una extensión de la regresión lineal que utiliza potencias de las variables independientes para capturar relaciones no lineales.
+    \item \textbf{Regresión Ridge y LASSO}: Estos son tipos de regresión lineal que incluyen regularización para prevenir el sobreajuste. En el caso de la regresión \textbf{Ridge (L2)}, se penaliza la magnitud de los coeficientes, mientras que la regresión \textbf{Lasso (L1)} reduce algunos coeficientes a cero, lo que permite realizar una selección de características.
+\end{itemize}
+
+\cite{De0a100enIA_2}
+
+\subsection{Métricas de Error}
+Las métricas de evaluación para datos continuos resultan útiles para conocer si los valores aproximados o predichos por un modelo se acercan a los valores reales. Esta diferencia entre los valores reales y los predichos es el error. 
+
+Cada métrica que se comentará a continuación trata este error de manera singular, aplicando diversas ecuaciones que son convenientes para distintos modelos. A continuación, mencionaremos algunas métricas que pueden utilizarse:
 \begin{enumerate}
-    \item Error medio Cuadratico (MSE)
+    \item Error Medio Cuadrático (MSE)
     \item Error Medio Absoluto (MAE)
-    \item Error Relativo Cuadratico (RSE)
+    \item Error Relativo Cuadrático (RSE)
     \item Error Relativo Absoluto (RAE)
-    \item Coeficiente de Correlacion (CC)
+    \item Coeficiente de Correlación (CC)
 \end{enumerate}
+\cite{De0a100enIA}
 
-\subsubsection{ Mean Squared Error (MSE y RMSE)}
-MSE es comunmente el metodo mas utilizafo para poder predecir el error. Tambien se utiliza su raiz cuadrada, llamada <<Root Mean-Squared Error>>-RMSE-
-Si consideramos el valor real (actual) como $a$ y el valor predicho como $p$, MSE y RMSE pueden calcularse como la diferencia entre el valor actual y el predicho al cuadrado entre el numero de valores (n) de la siguiente manera:
+\subsubsection{Mean Squared Error (MSE y RMSE)}
+MSE es comúnmente el método más utilizado para predecir el error. También se utiliza su raíz cuadrada, llamada <<Root Mean Squared Error>> (RMSE). 
+Si consideramos el valor real (actual) como $y_i$ y el valor predicho como $\hat{y}_i$, el MSE y el RMSE se calculan como el promedio de la diferencia al cuadrado entre el valor actual y el predicho de la siguiente manera:
+
 \begin{equation}
-    MSE = \frac{1}{n} \sum_{}^{} (i=1)^n (y_i - \hat{y_i})^2
+    MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
 \end{equation}
 \begin{equation}
-    RMSE = \sqrt{\frac{1}{n} \sum_{}^{}(i=1)^n(y_i - \hat{y_i})^2}
+    RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
 \end{equation}
 
 Donde:
 \begin{itemize}
     \item $y_i$ = valor real
-    \item $\hat{y_i}$ = valor predicho
-    \item $n$ = numero de observaciones
+    \item $\hat{y}_i$ = valor predicho
+    \item $n$ = número de observaciones
 \end{itemize}
 
-El error medio cuadratico permite evaluar el rendimiento de multiples modelos en un problema de prediccion cuando se trata de datos continuos. MSE varia de un rango de $[0,\infty)$ siendo
-un menor valor de MSE, un mejor rendimiento del modelo. Este metodo penaliza mas los errores grandes debido al cuadrado  y es ampliamente utilizado y bien entendido. Sin embargo , tiene algunas limitaciones, entre ellas, que MSE es sensible a valores atipicos << outliers>> y tampoco proporciona informacion sobre direccion del error.
+El error medio cuadrático permite evaluar el rendimiento de múltiples modelos en un problema de predicción con datos continuos. El MSE varía en un rango de $[0, \infty)$; un menor valor indica un mejor rendimiento del modelo. Este método penaliza más los errores grandes debido al cuadrado. Sin embargo, tiene limitaciones: es sensible a valores atípicos (<<outliers>>) y no proporciona información sobre la dirección del error.
 
+\cite{De0a100enIA}
 
-\subsubsection{Mean Aboslute Error(MAE)}
-Es una medida que solo promedia las magnitudes de cada error de manera individual sin tener en cuenta su signo. Tiene una ventaja con respecto a MSE; con MAE los outliers no son exagerados y se trata todos los errores de la misma manera de acuerdo a su magnitud.
-El error medio absoluto se calcula de las siguiente manera:
+\subsubsection{Mean Absolute Error (MAE)}
+Es una medida que promedia las magnitudes de cada error de manera individual sin tener en cuenta su signo. Tiene una ventaja con respecto al MSE: con el MAE los \textit{outliers} no son exagerados y se tratan todos los errores por igual de acuerdo a su magnitud.
 \begin{equation}
-    MAE = \frac{1}{n} \sum_{}^{}(i=1)^n |y_i - \hat{y_i}|
+    MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
 \end{equation}
 
+\cite{De0a100enIA}
 
-\subsubsection{Relative squared error (RSE)}
-Con el Error Relativo Cuadratico (RSE) se normaliza, lo cual permite una comparacion entre diferentes conjuntos de datos y es independiente de la escala de los datos. Las desventajas de este metodo es que es menos intituivo que MSE o MAE y requiere calcular la media de los datos reales, por lo que es un poco mas complicado de calcular y hacer sentido del resultado.
+\subsubsection{Relative Squared Error (RSE)}
+Con el Error Relativo Cuadrático (RSE) se normaliza el error, lo cual permite una comparación entre diferentes conjuntos de datos independientemente de su escala. La desventaja de este método es que es menos intuitivo que el MSE o MAE y requiere calcular la media de los datos reales.
 \begin{equation}
-    MAE = \frac{\sum_{}^{}(i=1)^n (y_i - \hat{y_i})^2}{\sum_{}^{}(i=1)^n (y_i - \bar{y})^2} 
+    RSE = \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} 
 \end{equation}
 Donde:
 \begin{itemize}
-    \item $y_i$ = valor real de la observacion 
-    \item $\hat{y_i}$ = valor predicho de la observacion 
-    \item $\bar{y}$ + media de los valores reales : $\bar{y} = (\frac{1}{n}) \sum_{(i=1)^n}{} y_i $
+    \item $y_i$ = valor real de la observación 
+    \item $\hat{y}_i$ = valor predicho de la observación 
+    \item $\bar{y}$ = media de los valores reales: $\bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i$
 \end{itemize}
+\cite{De0a100enIA}
 
-\subsubsection{Relative absolute error (RAE)}
-El Error Relativo Absoluto (RAE) es el valor del error absoluto, normaliado de la misma manera que con MAE. RAE mide la fuerza de la relacion lineal
-y; como es una especie de normalizacion, sus valores se encuentran entre -1 y 1 por lo que este metodo es de facil interpretacion. Tiene algunas desventajas, por ejemplo, solo mide correlacion lineal y no indica la magnitud del error.
-
+\subsubsection{Relative Absolute Error (RAE)}
+El Error Relativo Absoluto (RAE) es el valor del error absoluto normalizado. A diferencia del MAE, el RAE permite comparar modelos en diferentes escalas.
 \begin{equation}
-    RAE = \frac{\sum_{i=1}^{n} | y_i - \hat{y_i} |}{\sum_{i=1}^{n} | y_i - \bar{y} |}
+    RAE = \frac{\sum_{i=1}^{n} | y_i - \hat{y}_i |}{\sum_{i=1}^{n} | y_i - \bar{y} |}
 \end{equation}
+\cite{De0a100enIA}
 
 \subsubsection{Correlation Coefficient (CC)}
-El coeficiente de correlacion (CC) mide la correlacion estadistica los valores actuales y los valores predichos. El coeficiente de correlacion varia de 1 para un resultado de correlacion es perfecta pero negativa. Mide
-la fuerza de la relacion lineal y debido a su rango de valores, es facil interpretar esta metrica. Como deventaja, no indica la magnitud del error y puede ser alto incluso con predicciones sesgadas. 
+Mide la correlación estadística entre los valores actuales y los predichos. Varía entre -1 y 1, donde 1 indica una correlación perfecta. Como desventaja, no indica la magnitud del error y puede ser alto incluso con predicciones sesgadas. 
 
 \begin{equation}
-    CC = \frac{\sum_{}^{}[(y_i - \bar{y})(\hat{y_i} - \hat{\bar{y}})]}{\sqrt{[\sum_{}^{}(yi - \bar{y})^2 \times \sum_{}^{}(\hat{y}i - \bar{\hat{y}})^2]}}
+    CC = \frac{\sum_{i=1}^{n} (y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}})}{\sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2 \cdot \sum_{i=1}^{n} (\hat{y}_i - \bar{\hat{y}})^2}}
 \end{equation}
 
+\subsubsection{Coeficiente de determinación (\texorpdfstring{$R^2$}{R2})}
+Indica qué proporción de la varianza en los datos reales es explicada por el modelo. Su ecuación es:
+\begin{equation}
+    R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+\end{equation}
+
+Donde: 
+\begin{itemize}
+    \item $y_i$ = valor $i$-ésimo real
+    \item $\hat{y}_i$ = valor predicho $i$-ésimo
+    \item $\bar{y}$ = media de los valores reales
+    \item $\bar{\hat{y}}$ = media de los valores predichos
+\end{itemize}
+
+\cite{De0a100enIA}
+
 \section{Materiales y Métodos}
+\subsection{Herramientas y Entorno de Desarrollo}
+
+Para el desarrollo de este proyecto se seleccionó un ecosistema de herramientas basado en el lenguaje Python, orientado específicamente al análisis de datos y el aprendizaje automático.
+
+\subsubsection{Entorno de Ejecución}
+\begin{itemize}
+    \item \textbf{IDE:} Visual Studio Code (VS Code).
+    \item \textbf{Formato:} Jupyter Notebook (\texttt{.ipynb}), el cual permite una ejecución interactiva y modular del código.
+    \item \textbf{Lenguaje:} Python versión 3.14.2 (entorno local).
+\end{itemize}
+
+\subsubsection{Librerías y Dependencias}
+A continuación, se describen las librerías utilizadas y su función específica dentro del flujo de trabajo:
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\textbf{Librería / Módulo} & \textbf{Descripción y Uso en el Proyecto} \\ \hline
+\texttt{numpy} (np) & Soporte para vectores y matrices, esencial para los cálculos matemáticos de los modelos. \\ \hline
+\texttt{pandas} (pd) & Manipulación y limpieza de estructuras de datos (DataFrames). \\ \hline
+\texttt{yfinance} (yf) & Conexión con la API de Yahoo Finance para la descarga de datos históricos financieros. \\ \hline
+\texttt{seaborn} (sns) & Visualización de datos estadística y creación de gráficos de alta fidelidad. \\ \hline
+\texttt{matplotlib} (plt) & Generación de gráficas base y control de la interfaz de trazado. \\ \hline
+\texttt{mdates} & Manejo y formato especializado de fechas en los ejes de las gráficas bursátiles. \\ \hline
+\texttt{LinearRegression} & Implementación del algoritmo de aprendizaje supervisado para modelar relaciones lineales. \\ \hline
+\texttt{train\_test\_split} & División del conjunto de datos en subgrupos de entrenamiento y validación para evitar el sobreajuste. \\ \hline
+\end{tabularx}
+\caption{Resumen de herramientas tecnológicas y librerías de Python utilizadas.}
+\end{table}
+
+Para la evaluación del desempeño del modelo, se desarrollaron funciones manuales encargadas de computar los márgenes de error, permitiendo verificar la exactitud de las predicciones de manera detallada.
+Basado en las formulas que previamente mencionamos en la seccion de Marco Teorico.
+
 \section{Resultados y Discusión}
+En esta sección los datos que se muestran corresponden a la compañía 
+\textbf{Intel (INTC)}, con base en el histórico financiero accesible 
+en Yahoo Finance. Se decidió trabajar con datos de un año en el período 
+\textbf{(01/01/2025 - 01/01/2026)}.
+
+Mencionado esto, lo que se mostrará a continuación son los resultados 
+de los cálculos del margen de error de cada columna del conjunto de datos, 
+así como su representación visual.
+\subsection{Columna Open}
+
+Los resultados para la columna Open muestran el mejor desempeño del modelo entre todas las columnas analizadas. Con un MSE de 0.0464 y un MAE de 0.0636, el modelo comete en promedio un error de apenas 0.06 dólares por predicción. El RSE de 0.0091 indica que solo el 0.91\% de la variación no es explicada por el modelo, mientras que el RAE de 0.0353 muestra que el modelo comete únicamente el 3.53\% del error que cometería un modelo naive. Finalmente, el coeficiente de correlación de 0.9954 confirma una correlación del 99.54\% entre las predicciones y los valores reales.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Metricas_Err_Open.png}
+        \caption{Columna Open Resultado Metricas}
+    \end{subfigure}
+    
+    \caption{Resultados del margen de error para la variable de apertura.} % Agregado para que el label funcione bien
+    \label{fig:MargenErrorOpen}
+\end{figure}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_O1.png}
+         \caption{Columna Open Mes de Prueba Octubre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_O2.png}
+         \caption{Columna Open Mes de Prueba Noviembre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_O3.png}
+         \caption{Columna Open Mes de Prueba Diciembre 2025}
+     \end{subfigure}
+     \caption{Visualizacion del valor real y el predicho en la Columna OPEN.}
+     \label{fig:VisualizacionErrorOpen}
+\end{figure}
+
+\subsection{Columna High}
+
+La columna High representa la más difícil de predecir entre todas las columnas, lo cual es esperado ya que el precio máximo del período depende de picos momentáneos impredecibles. El MSE de 0.1709 y el MAE de 0.2648 indican un error promedio de 0.26 dólares por predicción. El RSE de 0.0328 muestra que el 3.28\% de la variación no es explicada por el modelo, y el RAE de 0.1441 indica que el modelo comete el 14.41\% del error de un modelo naive. A pesar de ser la columna más difícil, el coeficiente de correlación de 0.9840 sigue siendo muy alto con un 98.40\%.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Metricas_Err_High.png}
+        \caption{Columna High Resultado Metricas}
+    \end{subfigure}
+    
+    \caption{Resultados del margen de error para la variable de precio HIGH.} % Agregado para que el label funcione bien
+    \label{fig:MargenErrorHigh}
+\end{figure}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_H1.png}
+         \caption{Columna High Mes de Prueba Octubre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_H2.png}
+         \caption{Columna High Mes de Prueba Noviembre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_H3.png}
+         \caption{Columna High Mes de Prueba Diciembre 2025}
+     \end{subfigure}
+     \caption{Visualizacion del valor real y el predicho en la Columna HIGH.}
+     \label{fig:VisualizacionErrorHigh}
+\end{figure}
+
+\subsection{Columna Low}
+Los resultados para la columna Low son similares a High pero ligeramente mejores, lo cual tiene sentido ya que el precio mínimo también depende de caídas momentáneas pero es un poco más predecible. El MSE de 0.1095 y el MAE de 0.2416 muestran un error promedio de 0.24 dólares. El RSE de 0.0221 indica que solo el 2.21\% de la variación no es explicada, y el RAE de 0.1365 muestra que el modelo comete el 13.65\% del error de un modelo naive. El coeficiente de correlación de 0.9893 confirma una correlación del 98.93\%.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Metricas_Err_Low.png}
+        \caption{Columna Low Resultado Metricas}
+    \end{subfigure}
+    
+    \caption{Resultados del margen de error para la variable Low.} % Agregado para que el label funcione bien
+    \label{fig:MargenErrorLow}
+\end{figure}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_L1.png}
+         \caption{Columna Low Mes de Prueba Octubre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_L2.png}
+         \caption{Columna Low Mes de Prueba Noviembre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_L3.png}
+         \caption{Columna Low Mes de Prueba Diciembre 2025}
+     \end{subfigure}
+     \caption{Visualizacion del valor real y el predicho en la Columna Low.}
+     \label{fig:VisualizacionErrorLow}
+\end{figure}
+
+\subsection{Columna Close}
+La columna Close muestra buenos resultados considerando que se utilizaron datos de la hora anterior para realizar las predicciones, lo que hace el escenario más realista y honesto. El MSE de 0.1960 y el MAE de 0.2849 indican un error promedio de 0.28 dólares por predicción. El RSE de 0.0386 muestra que el 3.86\% de la variación no es explicada por el modelo, y el RAE de 0.1581 indica que el modelo comete el 15.81\% del error de un modelo naive. El coeficiente de correlación de 0.9807 confirma una correlación del 98.07\% entre las predicciones y los valores reales.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Metricas_Err_Close.png}
+        \caption{Columna Close Resultado Metricas}
+    \end{subfigure}
+    
+    \caption{Resultados del margen de error para la variable Close.} % Agregado para que el label funcione bien
+    \label{fig:MargenErrorClose}
+\end{figure}
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_C1.png}
+         \caption{Columna Close Mes de Prueba Octubre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_C2.png}
+         \caption{Columna Close Mes de Prueba Noviembre 2025}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.8\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../Imagenes/Tarea4/Regress_Lineal_C3.png}
+         \caption{Columna Close Mes de Prueba Diciembre 2025}
+     \end{subfigure}
+     \caption{Visualizacion del valor real y el predicho en la Columna Close.}
+     \label{fig:VisualizacionErroClose}
+\end{figure}
+
 \section{Conclusión}
-% \printbibliography[title={ Bibliográficas}]
+El modelo de Regresión Lineal demostró un desempeño muy satisfactorio 
+para la predicción de precios horarios de la acción de Intel Corporation 
+(INTC) durante el período analizado. Los resultados obtenidos confirman 
+que existe una alta correlación entre los valores de un período y el 
+siguiente, lo cual es característico de series de tiempo financieras 
+con alta autocorrelación.
+
+Entre las columnas analizadas, Open resultó ser la mejor predicha con 
+un coeficiente de correlación del 99.54\%, lo cual es consistente con 
+el hecho de que el precio de apertura de un período está fuertemente 
+influenciado por el comportamiento del período inmediatamente anterior. 
+Por otro lado, las columnas High y Close presentaron los errores más 
+altos, con coeficientes de correlación de 98.40\% y 98.07\% 
+respectivamente, lo que se explica porque el precio máximo depende de 
+picos momentáneos impredecibles, mientras que Close acumula toda la 
+volatilidad generada durante el período.
+
+Un aspecto relevante del análisis fue la decisión de utilizar los datos 
+del período anterior mediante la función \texttt{shift(1)} como variables 
+independientes, en lugar de utilizar las columnas del mismo instante de 
+tiempo. Esta decisión evitó un escenario de sobreajuste donde el modelo 
+aprendía una relación matemática casi perfecta entre variables del mismo 
+período, logrando así una evaluación más honesta y realista de la capacidad 
+predictiva del modelo.
+
+No obstante, es importante reconocer las limitaciones del modelo. La 
+Regresión Lineal asume una relación lineal entre las variables, lo cual 
+no siempre se cumple en mercados financieros, especialmente en períodos 
+de alta volatilidad o ante eventos externos como noticias corporativas 
+o decisiones macroeconómicas. 
+
+\printbibliography[title={ Bibliográficas}]
 \end{document}

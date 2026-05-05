@@ -78,5 +78,8 @@
     <requires type="dynamic">
       <file>Reporte_Actividad4_IGZ.bcf</file>
     </requires>
+    <requires type="editable">
+      <file>referencias.bib</file>
+    </requires>
   </external>
 </requests>

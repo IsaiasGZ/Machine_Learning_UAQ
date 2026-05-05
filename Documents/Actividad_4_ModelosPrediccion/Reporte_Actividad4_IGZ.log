@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.14)  29 APR 2026 15:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.14)  1 MAY 2026 22:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -427,38 +427,7 @@ Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
-)) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count435
-\lst@gtempboxa=\box55
-\lst@token=\toks28
-\lst@length=\count436
-\lst@currlwidth=\dimen167
-\lst@column=\count437
-\lst@pos=\count438
-\lst@lostspace=\dimen168
-\lst@width=\dimen169
-\lst@newlines=\count439
-\lst@lineno=\count440
-\lst@maxwidth=\dimen170
- (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count441
-\lst@skipnumbers=\count442
-\lst@framebox=\box56
-) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2025/11/14 1.11b listings configuration
-))
-Package: listings 2025/11/14 1.11b (Carsten Heinz)
-
-==> First Aid for listings.sty no longer applied!
-    Expected:
-        2024/09/23 1.10c (Carsten Heinz)
-    but found:
-        2025/11/14 1.11b (Carsten Heinz)
-    so I'm assuming it got fixed.
-(C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+)) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -476,7 +445,85 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+ (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen167
+\ar@mcellbox=\box55
+\extrarowheight=\dimen168
+\NC@list=\toks28
+\extratabsurround=\skip76
+\backup@length=\skip77
+\ar@cellbox=\box56
+)
+\everycr=\toks29
+\minrowclearance=\skip78
+\rownum=\count435
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen169
+\TX@old@table=\dimen170
+\TX@old@col=\dimen171
+\TX@target=\dimen172
+\TX@delta=\dimen173
+\TX@cols=\count436
+\TX@ftn=\toks30
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen174
+\captionmargin=\dimen175
+\caption@leftmargin=\dimen176
+\caption@rightmargin=\dimen177
+\caption@width=\dimen178
+\caption@indent=\dimen179
+\caption@parindent=\dimen180
+\caption@hangindent=\dimen181
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count437
+\c@continuedfloat=\count438
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count439
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count440
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count441
+\lst@gtempboxa=\box57
+\lst@token=\toks31
+\lst@length=\count442
+\lst@currlwidth=\dimen182
+\lst@column=\count443
+\lst@pos=\count444
+\lst@lostspace=\dimen183
+\lst@width=\dimen184
+\lst@newlines=\count445
+\lst@lineno=\count446
+\lst@maxwidth=\dimen185
+ (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count447
+\lst@skipnumbers=\count448
+\lst@framebox=\box58
+) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
@@ -487,15 +534,15 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 )
-\Gin@req@height=\dimen171
-\Gin@req@width=\dimen172
+\Gin@req@height=\dimen186
+\Gin@req@width=\dimen187
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count443
-\float@exts=\toks29
-\float@box=\box57
-\@float@everytoks=\toks30
-\@floatcapt=\box58
+\c@float@type=\count449
+\float@exts=\toks32
+\float@box=\box59
+\@float@everytoks=\toks33
+\@floatcapt=\box60
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
@@ -511,13 +558,13 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count444
+\c@section@level=\count450
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen173
-\Hy@linkcounter=\count445
-\Hy@pagecounter=\count446
+\@linkdim=\dimen188
+\Hy@linkcounter=\count451
+\Hy@pagecounter=\count452
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -525,7 +572,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count447
+\Hy@SavedSpaceFactor=\count453
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -538,17 +585,17 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count448
+\c@Hy@tempcnt=\count454
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen174
+\XeTeXLinkMargin=\dimen189
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count449
-\Field@Width=\dimen175
-\Fld@charsize=\dimen176
+\Fld@menulength=\count455
+\Field@Width=\dimen190
+\Fld@charsize=\dimen191
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -556,15 +603,15 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count450
-\c@Item=\count451
-\c@Hfootnote=\count452
+\Hy@abspage=\count456
+\c@Item=\count457
+\c@Hfootnote=\count458
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count453
-\c@bookmark@seq@number=\count454
+\Fld@listcount=\count459
+\c@bookmark@seq@number=\count460
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
@@ -572,7 +619,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
-\Hy@SectionHShift=\skip76
+\Hy@SectionHShift=\skip79
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -588,26 +635,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `Reporte_Actividad4_IGZ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Info: Redefining \. on input line 37.
-LaTeX Info: Redefining \% on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -656,43 +703,133 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Reporte_Actividad4_IGZ.bbl' found.
  (Reporte_Actividad4_IGZ.bbl)
-Package biblatex Info: Reference section=0 on input line 37.
-Package biblatex Info: Reference segment=0 on input line 37.
-\c@lstlisting=\count455
+Package biblatex Info: Reference section=0 on input line 40.
+Package biblatex Info: Reference segment=0 on input line 40.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count456
-\scratchdimen=\dimen177
-\scratchbox=\box59
-\nofMPsegments=\count457
-\nofMParguments=\count458
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count459
-\MPscratchDim=\dimen178
-\MPnumerator=\count460
-\makeMPintoPDFobject=\count461
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count461
+\scratchdimen=\dimen192
+\scratchbox=\box61
+\nofMPsegments=\count462
+\nofMParguments=\count463
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count464
+\MPscratchDim=\dimen193
+\MPnumerator=\count465
+\makeMPintoPDFobject=\count466
+\everyMPtoPDFconversion=\toks35
 ) (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count467
+Package hyperref Info: Link coloring OFF on input line 40.
  (Reporte_Actividad4_IGZ.out) (Reporte_Actividad4_IGZ.out)
 \@outlinefile=\write4
 \openout4 = `Reporte_Actividad4_IGZ.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
  (C:\Users\Isaia\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Isaia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] (Reporte_Actividad4_IGZ.aux
+{C:/Users/Isaia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4]
+<../Imagenes/Tarea4/Metricas_Err_Open.png, id=135, 311.66437pt x 141.52875pt>
+File: ../Imagenes/Tarea4/Metricas_Err_Open.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Metricas_Err_Open.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Metricas_Err_Open.png  used on input line 218.
+(pdftex.def)             Requested size: 375.80544pt x 170.65858pt.
+ [5]
+<../Imagenes/Tarea4/Regress_Lineal_O1.png, id=142, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_O1.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_O1.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_O1.png  used on input line 230.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_O2.png, id=143, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_O2.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_O2.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_O2.png  used on input line 236.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_O3.png, id=144, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_O3.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_O3.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_O3.png  used on input line 242.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+ [6 <../Imagenes/Tarea4/Metricas_Err_Open.png>] [7 <../Imagenes/Tarea4/Regress_Lineal_O1.png> <../Imagenes/Tarea4/Regress_Lineal_O2.png> <../Imagenes/Tarea4/Regress_Lineal_O3.png>]
+<../Imagenes/Tarea4/Metricas_Err_High.png, id=161, 321.45094pt x 150.5625pt>
+File: ../Imagenes/Tarea4/Metricas_Err_High.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Metricas_Err_High.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Metricas_Err_High.png  used on input line 257.
+(pdftex.def)             Requested size: 375.80544pt x 176.02644pt.
+<../Imagenes/Tarea4/Regress_Lineal_H1.png, id=162, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_H1.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_H1.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_H1.png  used on input line 269.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_H2.png, id=163, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_H2.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_H2.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_H2.png  used on input line 275.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_H3.png, id=164, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_H3.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_H3.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_H3.png  used on input line 281.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+ [8 <../Imagenes/Tarea4/Metricas_Err_High.png>] [9 <../Imagenes/Tarea4/Regress_Lineal_H1.png> <../Imagenes/Tarea4/Regress_Lineal_H2.png> <../Imagenes/Tarea4/Regress_Lineal_H3.png>]
+<../Imagenes/Tarea4/Metricas_Err_Low.png, id=179, 329.73187pt x 149.8097pt>
+File: ../Imagenes/Tarea4/Metricas_Err_Low.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Metricas_Err_Low.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Metricas_Err_Low.png  used on input line 295.
+(pdftex.def)             Requested size: 375.80544pt x 170.74823pt.
+<../Imagenes/Tarea4/Regress_Lineal_L1.png, id=180, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_L1.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_L1.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_L1.png  used on input line 307.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_L2.png, id=181, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_L2.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_L2.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_L2.png  used on input line 313.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_L3.png, id=182, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_L3.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_L3.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_L3.png  used on input line 319.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+ [10 <../Imagenes/Tarea4/Metricas_Err_Low.png>] [11 <../Imagenes/Tarea4/Regress_Lineal_L1.png> <../Imagenes/Tarea4/Regress_Lineal_L2.png> <../Imagenes/Tarea4/Regress_Lineal_L3.png>]
+<../Imagenes/Tarea4/Metricas_Err_Close.png, id=197, 342.5297pt x 141.52875pt>
+File: ../Imagenes/Tarea4/Metricas_Err_Close.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Metricas_Err_Close.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Metricas_Err_Close.png  used on input line 333.
+(pdftex.def)             Requested size: 375.80544pt x 155.28905pt.
+<../Imagenes/Tarea4/Regress_Lineal_C1.png, id=198, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_C1.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_C1.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_C1.png  used on input line 345.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_C2.png, id=199, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_C2.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_C2.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_C2.png  used on input line 351.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+<../Imagenes/Tarea4/Regress_Lineal_C3.png, id=200, 859.2903pt x 354.123pt>
+File: ../Imagenes/Tarea4/Regress_Lineal_C3.png Graphic file (type png)
+<use ../Imagenes/Tarea4/Regress_Lineal_C3.png>
+Package pdftex.def Info: ../Imagenes/Tarea4/Regress_Lineal_C3.png  used on input line 357.
+(pdftex.def)             Requested size: 375.80544pt x 154.87439pt.
+ [12 <../Imagenes/Tarea4/Metricas_Err_Close.png>] [13 <../Imagenes/Tarea4/Regress_Lineal_C1.png> <../Imagenes/Tarea4/Regress_Lineal_C2.png> <../Imagenes/Tarea4/Regress_Lineal_C3.png>] [14] (Reporte_Actividad4_IGZ.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
@@ -702,23 +839,23 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `Reporte_Actividad4_IGZ.out' has not changed.
-(rerunfilecheck)             Checksum: 03C4D5D5674877F4515E7CAA6FAA3CD0;1898.
+(rerunfilecheck)             Checksum: 354D2082562438AE92D7224809A39D61;3442.
 Package logreq Info: Writing requests to 'Reporte_Actividad4_IGZ.run.xml'.
 \openout1 = `Reporte_Actividad4_IGZ.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21423 strings out of 467871
- 365193 string characters out of 5418376
- 1229747 words of memory out of 5000000
- 50049 multiletter control sequences out of 15000+600000
- 640365 words of font info for 76 fonts, out of 8000000 for 9000
+ 23464 strings out of 467871
+ 407469 string characters out of 5418376
+ 1262050 words of memory out of 5000000
+ 52035 multiletter control sequences out of 15000+600000
+ 642131 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,7n,67p,814b,1842s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Reporte_Actividad4_IGZ.pdf (3 pages, 141984 bytes).
+ 67i,11n,83p,1318b,1846s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Isaia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Isaia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Reporte_Actividad4_IGZ.pdf (14 pages, 977970 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 610 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
 
