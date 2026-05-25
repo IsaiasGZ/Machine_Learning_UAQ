@@ -1,0 +1,81 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{De0a100enIA}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3be967bbb2abeffd143bc645ad15577}{%
+           family={Fernandez},
+           familyi={F\bibinitperiod},
+           given={Dr.\bibnamedelimi Marco\bibnamedelimb Antonio\bibnamedelima Aceves},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{fullhash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{fullhashraw}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{bibnamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorbibnamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authornamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorfullhash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorfullhashraw}{d3be967bbb2abeffd143bc645ad15577}
+      \field{extraname}{1}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{chapter}{7.8}
+      \field{subtitle}{Todas las claves para comenzar tu viaje por la IA}
+      \field{title}{De 0 a 100 en Inteligencia Artificial}
+      \field{year}{2025}
+      \field{pages}{519\bibrangedash 520}
+      \range{pages}{2}
+    \endentry
+    \entry{De0a100enIA_2}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3be967bbb2abeffd143bc645ad15577}{%
+           family={Fernandez},
+           familyi={F\bibinitperiod},
+           given={Dr.\bibnamedelimi Marco\bibnamedelimb Antonio\bibnamedelima Aceves},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{fullhash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{fullhashraw}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{bibnamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorbibnamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authornamehash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorfullhash}{d3be967bbb2abeffd143bc645ad15577}
+      \strng{authorfullhashraw}{d3be967bbb2abeffd143bc645ad15577}
+      \field{extraname}{2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{chapter}{7.8}
+      \field{subtitle}{Todas las claves para comenzar tu viaje por la IA}
+      \field{title}{De 0 a 100 en Inteligencia Artificial}
+      \field{year}{2025}
+      \field{pages}{536}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
